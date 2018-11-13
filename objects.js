@@ -8,7 +8,7 @@ let book2 = { title: "To Kill a Mockingibrd", author: "Harper Lee", isbn: "04463
 let book3 = { title: "Eloquent JavaScript", author: "Marijn Haverbeke", isbn: "1593279507", category: "Programming Languages" };
 
 
-// adding the only user we have to the library array
+// adding the only two users we have to the library array
 library.push(user1, user2);
 
 const addBook2User = (userName, book) => {
@@ -17,6 +17,7 @@ const addBook2User = (userName, book) => {
       user.books.push(book);
       console.log('adicionado');
     }
+    console.log(user);
   });
 
   return "Ok";
@@ -24,8 +25,8 @@ const addBook2User = (userName, book) => {
 
 const listBooksUser = (userName) => {
   library.forEach((user) => {
-    if (user[userName] === userName) {
-      users[userName].books.forEach((book) => {
+    if (user['name'] === userName) {
+      user.books.forEach((book) => {
         console.log(`User: ${userName} has book: ${book.title}`);
       });
     }
@@ -49,6 +50,10 @@ const listBooksPerUser = () => {
 
 console.log(addBook2User('Nick', book1));
 console.log(addBook2User('Nick', book2));
+
+library[1].books.push(book3);
+
+console.log(library[1]);
 
 console.log(listBooksUser('Nick'));
 
